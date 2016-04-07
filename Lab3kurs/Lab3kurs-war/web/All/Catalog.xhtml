@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h2>
+                    <h:outputLabel value="Справочник"/>
+                </h2>                                                                    
+                <ace:dataTable value="#{CatalogBean.selectCatalog()}"
+                               var="catalog"
+                               stateMap="#{CatalogBean.stateMap}"
+                               selectionMode="multiple">
+                    <ace:column headerText="id" sortBy="#{catalog.id}" rendered="false"
+                                filterBy="#{catalog.id}" filterMatchMode="contains">
+                        <h:outputText value="#{catalog.id}"/>
+                    </ace:column>
+
+                    <ace:column headerText="idStuff" sortBy="#{catalog.idStuff}"
+                                filterBy="#{catalog.idStuff}" filterMatchMode="contains">
+                        <h:outputText value="#{catalog.idStuff}"/>
+                    </ace:column>
+
+                    <ace:column headerText="idRequest" sortBy="#{catalog.idRequest}"
+                                filterBy="#{catalog.idRequest}" filterMatchMode="contains">
+                        <h:outputText value="#{catalog.idRequest}"/>
+                    </ace:column>   
+                    <ace:column headerText="name" sortBy="#{catalog.name}"
+                                filterBy="#{catalog.name}" filterMatchMode="contains">
+                        <h:outputText value="#{catalog.name}"/>
+                    </ace:column>   
+                    <ace:column headerText="amount" sortBy="#{catalog.amount}"
+                                filterBy="#{catalog.amount}" filterMatchMode="contains">
+                        <h:outputText value="#{catalog.amount}"/>
+                    </ace:column>   
+
+
+                    <ace:column headerText="">
+                        <h:commandLink action="#{CatalogBean.editCatalog(catalog.id)}" value="Изменить" rendered="#{request.isUserInRole('admin')}"/>
+                    </ace:column> 
+                </ace:dataTable>  
+                <h:commandButton value="Назад" action="/index.xhtml"/>
+                <h:commandButton value="Удалить Материал" actionListener="#{CatalogBean.actionListener}" rendered="#{request.isUserInRole('admin')}"/> 
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       <f:view>
+            <h:form>
+                <h2>
+                    <h:outputLabel value="Добавить новый материал"/>
+                </h2>
+                <table>
+                    <tr>
+                        <th align="left">
+                            <h:outputLabel value="название" for="name"/>
+                        </th>
+                        <th>
+                            <h:inputText id="name" value="#{addRequestBean.request.idStuff}" required="true">
+                            </h:inputText>
+                        </th>
+                        <th>
+                            <h:message for="name" style="color:red" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th align="left">
+                            <h:outputLabel value="idRequest" for="number"/>
+                        </th>
+                        <th>
+                            <h:inputText id="idRequest" value="#{addRequestBean.request.idRequest}" required="true"> </h:inputText>
+                        </th>
+                        <th>
+                            <h:message for="idRequest" style="color:red" />
+                        </th>
+                    </tr> 
+                    <tr>
+                        <th align="left">
+                            <h:outputLabel value="agreement" for="number"/>
+                        </th>
+                        <th>
+                            <h:inputText id="agreement" value="#{addRequestBean.request.agreement}" required="true"> </h:inputText>
+                        </th>
+                        <th>
+                            <h:message for="agreement" style="color:red" />
+                        </th>
+                    </tr> 
+                    <tr>
+                        <th align="left">
+                            <h:outputLabel value="amount" for="number"/>
+                        </th>
+                        <th>
+                            <h:inputText id="amount" value="#{addRequestBean.request.amount}" required="true"> </h:inputText>
+                        </th>
+                        <th>
+                            <h:message for="amount" style="color:red" />
+                        </th>
+                    </tr>                 
+                    <tr>
+                        <th></th>
+                        <th align="right">
+                            <h:commandButton value="Добавить" action="#{addRequestBean.addNewRequest()}"/>
+                        </th>
+                    </tr>
+                </table>
+
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+
